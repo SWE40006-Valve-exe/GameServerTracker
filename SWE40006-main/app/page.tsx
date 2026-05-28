@@ -6,13 +6,26 @@ export const revalidate = 30
 export default async function HomePage() {
   const backendUrl = process.env.BACKEND_URL || 'http://localhost:4000';
 
-  const [serversRes, pinnedRes] = await Promise.all([
-    fetch(`${backendUrl}/api/servers/730?limit=50`, { next: { revalidate: 30 } }),
-    fetch(`${backendUrl}/api/pinned-servers`, { next: { revalidate: 30 } }),
-  ])
+  let servers: any[] = []
+  let pinned: any[] = []
 
-  const { servers = [] } = serversRes.ok ? await serversRes.json() : {};
-  const { pinned = [] } = pinnedRes.ok ? await pinnedRes.json() : {};
+  try {
+    const [serversRes, pinnedRes] = await Promise.all([
+      fetch(`${backendUrl}/api/servers/730?limit=50`, { next: { revalidate: 30 } }).catch(() => null),
+      fetch(`${backendUrl}/api/pinned-servers`, { next: { revalidate: 30 } }).catch(() => null),
+    ])
+
+    if (serversRes && serversRes.ok) {
+      const data = await serversRes.json()
+      servers = data.servers || []
+    }
+    if (pinnedRes && pinnedRes.ok) {
+      const data = await pinnedRes.json()
+      pinned = data.pinned || []
+    }
+  } catch (err) {
+    console.error('Failed to fetch home page data:', err)
+  }
 
   const totalPlayers = servers.reduce((s: any, srv: any) => s + srv.players, 0)
   const vacCount = servers.filter((srv: any) => srv.secure).length
