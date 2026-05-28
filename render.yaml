@@ -3,6 +3,8 @@ services:
     name: steam-tracker-staging
     runtime: docker
     branch: main
+    dockerfilePath: ./SWE40006-main/Dockerfile
+    dockerContext: ./SWE40006-main
     envVars:
       - key: NODE_ENV
         value: staging
@@ -15,6 +17,8 @@ services:
     name: steam-tracker-prod
     runtime: docker
     branch: main
+    dockerfilePath: ./SWE40006-main/Dockerfile
+    dockerContext: ./SWE40006-main
     envVars:
       - key: NODE_ENV
         value: production
@@ -22,3 +26,4 @@ services:
         value: "1.0.0"
       - key: STEAM_API_KEY
         sync: false   # Set manually in Render dashboard — required for /api/servers
+
