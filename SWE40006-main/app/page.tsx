@@ -1,31 +1,25 @@
 import Header from '@/components/Header'
 import ServerList from '@/components/ServerList'
+import { fetchGameServers } from '@/lib/gameServers'
+import { fetchPinnedServers } from '@/lib/pinnedServers'
 
 export const revalidate = 30
 
 export default async function HomePage() {
-  const backendUrl = process.env.BACKEND_URL || 'http://localhost:4000';
-
   let servers: any[] = []
   let pinned: any[] = []
 
   try {
-    const [serversRes, pinnedRes] = await Promise.all([
-      fetch(`${backendUrl}/api/servers/730?limit=50`, { next: { revalidate: 30 } }).catch(() => null),
-      fetch(`${backendUrl}/api/pinned-servers`, { next: { revalidate: 30 } }).catch(() => null),
+    const [serversData, pinnedData] = await Promise.all([
+      fetchGameServers(730, 50).catch(() => []),
+      fetchPinnedServers().catch(() => []),
     ])
-
-    if (serversRes && serversRes.ok) {
-      const data = await serversRes.json()
-      servers = data.servers || []
-    }
-    if (pinnedRes && pinnedRes.ok) {
-      const data = await pinnedRes.json()
-      pinned = data.pinned || []
-    }
+    servers = serversData || []
+    pinned = pinnedData || []
   } catch (err) {
     console.error('Failed to fetch home page data:', err)
   }
+
 
   const totalPlayers = servers.reduce((s: any, srv: any) => s + srv.players, 0)
   const vacCount = servers.filter((srv: any) => srv.secure).length
