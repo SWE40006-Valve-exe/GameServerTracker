@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: steam-tracker-staging
+    runtime: docker
+    branch: main
+    envVars:
+      - key: NODE_ENV
+        value: staging
+      - key: APP_VERSION
+        value: "1.0.0"
+      - key: STEAM_API_KEY
+        sync: false   # Set manually in Render dashboard — required for /api/servers
+
+  - type: web
+    name: steam-tracker-prod
+    runtime: docker
+    branch: main
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: APP_VERSION
+        value: "1.0.0"
+      - key: STEAM_API_KEY
+        sync: false   # Set manually in Render dashboard — required for /api/servers

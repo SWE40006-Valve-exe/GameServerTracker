@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(npm test *)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\User\\\\Documents\\\\GitHub\\\\SWE40006\" -Force | Select-Object Name, @{Name=\"Type\";Expression={if\\($_.PSIsContainer\\){\"DIR\"}else{\"FILE\"}}} | Format-Table -AutoSize)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\User\\\\Documents\\\\GitHub\\\\SWE40006\\\\app\" -Recurse -ErrorAction SilentlyContinue | Select-Object FullName, @{Name=\"Type\";Expression={if\\($_.PSIsContainer\\){\"DIR\"}else{\"FILE\"}}} | ForEach-Object { $_.FullName.Replace\\('C:\\\\Users\\\\User\\\\Documents\\\\GitHub\\\\SWE40006\\\\', ''\\) })",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\User\\\\Documents\\\\GitHub\\\\SWE40006\\\\components\" -Recurse -ErrorAction SilentlyContinue | Select-Object FullName | ForEach-Object { $_.FullName.Replace\\('C:\\\\Users\\\\User\\\\Documents\\\\GitHub\\\\SWE40006\\\\', ''\\) })",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\User\\\\Documents\\\\GitHub\\\\SWE40006\\\\lib\" -Recurse -ErrorAction SilentlyContinue | Select-Object FullName | ForEach-Object { $_.FullName.Replace\\('C:\\\\Users\\\\User\\\\Documents\\\\GitHub\\\\SWE40006\\\\', ''\\) })",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\User\\\\Documents\\\\GitHub\\\\SWE40006\\\\tests\" -Recurse -ErrorAction SilentlyContinue | Select-Object FullName | ForEach-Object { $_.FullName.Replace\\('C:\\\\Users\\\\User\\\\Documents\\\\GitHub\\\\SWE40006\\\\', ''\\) })"
+    ]
+  }
+}

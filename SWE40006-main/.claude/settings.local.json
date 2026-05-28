@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e \"console.log\\(require\\('./node_modules/@supabase/supabase-js/package.json'\\).version\\); console.log\\(require\\('./node_modules/@supabase/ssr/package.json'\\).version\\)\")",
+      "Bash(npx tsc *)"
+    ]
+  }
+}
