@@ -31,7 +31,7 @@ export default async function HomePage() {
       <div className="page-hero">
         <div className="page-hero-inner">
           <p className="page-eyebrow">Live · Steam Server Browser</p>
-          <h1 className="page-title">CS:GO Server Tracker</h1>
+          <h1 className="page-title">CS Server Tracker</h1>
           <p className="page-sub">
             Real-time IP server list for Counter-Strike 2 — refreshed every 30 seconds.
           </p>
@@ -66,7 +66,7 @@ export default async function HomePage() {
       </main>
 
       <footer>
-        <strong>CS:GO Server Tracker!</strong> — data sourced from the Steam public API · updates every 30 s
+        <strong>CS Server Tracker!</strong> — data sourced from the Steam public API · updates every 30 s
       </footer>
     </>
   )
