@@ -66,7 +66,7 @@ export default async function HomePage() {
       </main>
 
       <footer>
-        <strong>CS:GO Server Tracker</strong> — data sourced from the Steam public API · updates every 30 s
+        <strong>CS:GO Server Tracker!</strong> — data sourced from the Steam public API · updates every 30 s
       </footer>
     </>
   )
