@@ -108,7 +108,7 @@ npm run dev
 
 ---
 
-## CI/CD Pipeline
+## CI/CD Pipelines
 
 Every push to `main` triggers a fully automated 4-stage pipeline:
 
