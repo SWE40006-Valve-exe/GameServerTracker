@@ -138,7 +138,7 @@ Every push to `main` triggers a fully automated 4-stage pipeline:
 
 ---
 
-## Running Tests
+## Running Test
 
 ```bash
 cd SWE40006-main
