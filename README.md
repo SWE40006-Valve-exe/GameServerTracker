@@ -147,6 +147,6 @@ npm test -- --ci
 
 ---
 
-## Team
+## Us
 
 **Team Valve.exe** — SWE40006 Software Deployment and Evolution
