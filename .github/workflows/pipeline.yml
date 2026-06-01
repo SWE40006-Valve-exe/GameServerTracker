@@ -49,7 +49,7 @@ jobs:
         if: github.ref == 'refs/heads/main'
         run: |
           sleep 30
-          STATUS=$(curl -s -o /dev/null -w "%{http_code}" "${{ secrets.STAGING_URL }}/api/health")
+          STATUS=$(curl -sL -o /dev/null -w "%{http_code}" "${{ secrets.STAGING_URL }}/api/health")
           echo "Staging /api/health returned $STATUS"
           if [ "$STATUS" != "200" ]; then
             echo "Smoke test failed"
@@ -67,7 +67,7 @@ jobs:
         if: github.ref == 'refs/heads/main'
         run: |
           sleep 30
-          STATUS=$(curl -s -o /dev/null -w "%{http_code}" "${{ secrets.PRODUCTION_URL }}/api/health")
+          STATUS=$(curl -sL -o /dev/null -w "%{http_code}" "${{ secrets.PRODUCTION_URL }}/api/health")
           echo "Production /api/health returned $STATUS"
           if [ "$STATUS" != "200" ]; then
             echo "Production smoke test failed"
