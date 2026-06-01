@@ -150,9 +150,3 @@ npm test -- --ci
 ## Team
 
 **Team Valve** — SWE40006 Software Deployment and Evolution
-
----
-
-## License
-
-This project is for academic purposes as part of Swinburne University's SWE40006 unit.
