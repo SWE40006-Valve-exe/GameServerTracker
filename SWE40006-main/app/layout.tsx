@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Steam Game Tracker',
-  description: 'Track top-selling games, player counts, and trending titles on Steam',
+  title: 'CS Server Tracker',
+  description: 'Track Counter Strike servers',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
