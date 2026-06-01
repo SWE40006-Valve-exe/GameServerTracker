@@ -2,7 +2,7 @@
 
 A live web dashboard that tracks CS2 game servers in real time. Built with **Next.js 14** and **Express**, deployed through a fully automated 4-stage CI/CD pipeline on **Render**.
 
-**SWE40006 Software Deployment and Evolution — Team Valve, Semester 1, 2026**
+**SWE40006 Software Deployment and Evolution — Team Valve.exe, Semester 1, 2026**
 
 ---
 
@@ -149,4 +149,4 @@ npm test -- --ci
 
 ## Team
 
-**Team Valve** — SWE40006 Software Deployment and Evolution
+**Team Valve.exe** — SWE40006 Software Deployment and Evolution
